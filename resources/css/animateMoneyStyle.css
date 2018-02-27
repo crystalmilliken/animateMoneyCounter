@@ -1,0 +1,125 @@
+@keyframes moveBubble {
+    from {
+        content: "";
+        top: 50%;
+        left: 50%;
+        height: 0px;
+        width: 0px;
+    }
+    to {
+        content: attr(data-cost-savings);
+        top: -14px;
+        left: -14px;
+        height: 55px;
+        width: 55px;
+        border-radius: 30px;
+    }
+}
+
+@keyframes reverseBubble {
+    from {
+        top: -14px;
+        left: -14px;
+        height: 55px;
+        width: 55px;
+    }
+    to {
+        top: -14px;
+        left: -14px;
+        height:55px;
+        width:55px;
+        transform: scale(0);
+    }
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.shopping {
+    position: relative;
+    height: 160px;
+    width: 160px;
+    text-align: center;
+    border: 1px solid #d3d3d3
+}
+
+.shopping:hover {
+    border: thin solid blue;
+}
+
+.shopping img {
+    width: 100px;
+    height: 100px;
+    clear: both;
+}
+
+.subtractBubble::before {
+    content: "";
+    background-image: url("../images/bubble.png");
+    animation-name: reverseBubble;
+    animation-duration: .5s;
+    position: absolute;
+    text-align: center;
+    color: white;
+    top: -14px;
+    left: -14px;
+    border-radius: 30px;
+    padding-top: 10%;
+}
+
+.addBubble::before {
+    content: attr(data-cost-savings);
+    background-image: url("../images/bubble.png");
+    animation-name: moveBubble;
+    animation-duration: .5s;
+    position: absolute;
+    text-align: center;
+    color: white;
+    top: -14px;
+    left: -14px;
+    height: 55px;
+    width: 55px;
+    border-radius: 30px;
+    padding-top: 10%;
+    font-family: "cnx-medium", sans-serif;
+}
+
+.shopping-container {
+    display: flex;
+    justify-content: center;
+    background-color: #d9f2fa;
+    padding: 1em;
+}
+
+.shopping-container>div {
+    background-color: white;
+    margin: 1em;
+
+}
+
+.result-text-total-week {
+    color: #16af05;
+    font-size: 46px;
+    font-family: sans-serif;
+}
+
+.result-text-year {
+    font-size: 26px;
+    font-family: sans-serif;
+}
+
+.result-text-total-year {
+    color: #16af05;
+    font-size: 26px;
+    font-family: sans-serif;
+}
+
+#spare-change-text {
+    font-size: 30px;
+}
+
+#results {
+    text-align: center;
+    background-color: #d9f2fa;
+}
